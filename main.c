@@ -11,6 +11,23 @@ int main(void)
 
     result = addition( 3 /* counter */, 4, 5, 6 );
     printf( "addition( 3, 4, 5, 6 ) = %d\n", result ); /* 15 */
+    Bonjour();
+    inverse_nombre_trois_chiffre(122);
+    produit(4,5);
+    is_even_odd(12);
+    compare(12,5);
+    afficher_entier_croissant(12,9,923);
+    char chaine1[] = "toto";
+    char chaine2[] = "tata";
+
+    printf("\nAvant la permutation:\nchaine1 = %s, chaine2 =%s", chaine1,chaine2);
+    permuter_char(chaine1,chaine2);
+    printf("\nApres la permutation:\nchaine1 = %s, chaine2 =%s", chaine1,chaine2);
+
+
+    printf("La somme de 40 + 16 est %d", Somme(40,16));
+    
+
 
 
     return 0;
