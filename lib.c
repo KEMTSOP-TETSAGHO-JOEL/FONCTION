@@ -133,3 +133,62 @@ int Somme(int nombre1,int nombre2)
 {
     return nombre1 + nombre2;
 }
+/******************************************************************/
+void creer_vecteur_enseignant(Enseignant tab_enseignant[], int taille_tab)
+{
+    int i;
+
+    for (i = 0; i < taille_tab; i++)
+        {
+            printf("Entrer le code de l'enseignat(%d) :\n", i+1);
+            scanf("%s",tab_enseignant[i].code);
+
+            printf("Entrer le nom de l'enseignat(%d) :\n", i+1);
+            scanf("%s",tab_enseignant[i].nom);
+
+            printf("Entrer le prenom de l'enseignat(%d) :\n", i+1);
+            scanf("%s",tab_enseignant[i].prenom);
+
+            printf("Entrer le grade de l'enseignat(%d) :\n", i+1);
+            scanf("%s",tab_enseignant[i].grade);
+
+            printf("Entrer le sexe de l'enseignat(%d) :\n", i+1);
+            scanf("%s",tab_enseignant[i].sexe);
+
+        }
+}
+/******************************************************************/
+void is_exist_teacher(Enseignant tab_enseignant[],int taille_tab, Enseignant ens)
+{
+    int k = 0;
+    for (int i = 0; i < taille_tab; i++)
+        {
+            if (strcmp(tab_enseignant[i].code , ens.code) == 0)
+                k++;
+       
+        }
+    if (k == 0)
+        printf("L'enseignant n'existe pas\n");
+    else
+        printf("L'enseignant existe \n");
+}
+/******************************************************************/
+void afficher_liste_enseignant_par_sexe(Enseignant tab_enseignant[],int taille_tab, char sexe[])
+{
+    for (int i = 0; i < taille_tab; i++)
+        {
+            if (strcmp(tab_enseignant[i].sexe,sexe) == 0)
+                {
+                    printf("[\n");
+                    printf("Les enseignants de sexe %s sont:\n",sexe);
+                    printf("CODE : %s\n", tab_enseignant[i].code);
+                    printf("NOM :%s\n", tab_enseignant[i].nom);
+                    printf("PRENOM :%s\n", tab_enseignant[i].prenom);
+                    printf("GRADE :%s\n", tab_enseignant[i].grade);
+                    printf("]\n");
+
+                }
+        }
+
+}
+/******************************************************************/

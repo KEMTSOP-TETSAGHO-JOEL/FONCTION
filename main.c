@@ -26,6 +26,14 @@ int main(void)
 
 
     printf("La somme de 40 + 16 est %d", Somme(40,16));
+    printf("\n****************************************************************************************\n");
+
+    Enseignant tab_enseignant[4];
+    Enseignant ens = {"24ENSPM710", "kader","abdel","assistant", "masculin"};
+
+    creer_vecteur_enseignant(tab_enseignant,4);
+    is_exist_teacher(tab_enseignant,4, ens);
+    afficher_liste_enseignant_par_sexe(tab_enseignant,4,"masculin");
     
 
 
