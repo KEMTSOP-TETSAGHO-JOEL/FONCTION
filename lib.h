@@ -39,6 +39,11 @@
     void creer_vecteur_enseignant(Enseignant tab_enseignant[], int taille_tab);
     void is_exist_teacher(Enseignant tab_enseignant[],int taille_tab, Enseignant ens);
     void afficher_liste_enseignant_par_sexe(Enseignant tab_enseignant[],int taille_tab, char sexe[]);
+    void afficher_tab(int *tab, int size_tab);
+    void tri_tableau_bulle(int *tab, int size_tab);
+    void tri_tableau_insertion(int *tab, int size_tab);
+    int partition(int tab[], int low, int high);
+    void tri_tableau_rapide(int tab[], int low, int high); 
 
 
 

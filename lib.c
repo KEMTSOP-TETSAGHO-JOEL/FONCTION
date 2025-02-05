@@ -173,14 +173,14 @@ void is_exist_teacher(Enseignant tab_enseignant[],int taille_tab, Enseignant ens
         printf("L'enseignant existe \n");
 }
 /******************************************************************/
-void afficher_liste_enseignant_par_sexe(Enseignant tab_enseignant[],int taille_tab, char sexe[])
+void afficher_liste_enseignant_par_sexe(Enseignant *tab_enseignant,int taille_tab, char sexe[])
 {
+    printf("_______________Les enseignants de sexe %s sont:_______________\n",sexe);
     for (int i = 0; i < taille_tab; i++)
         {
             if (strcmp(tab_enseignant[i].sexe,sexe) == 0)
                 {
                     printf("[\n");
-                    printf("Les enseignants de sexe %s sont:\n",sexe);
                     printf("CODE : %s\n", tab_enseignant[i].code);
                     printf("NOM :%s\n", tab_enseignant[i].nom);
                     printf("PRENOM :%s\n", tab_enseignant[i].prenom);
@@ -190,5 +190,76 @@ void afficher_liste_enseignant_par_sexe(Enseignant tab_enseignant[],int taille_t
                 }
         }
 
+}
+/******************************************************************/
+void afficher_tab(int *tab, int size_tab)
+{
+    for (int i = 0; i < size_tab; i++)
+        printf("tab[%d] = %d\n", i+1, tab[i]);
+}
+/******************************************************************/
+void tri_tableau_bulle(int *tab, int size_tab)
+{
+    int i,j,temp;
+    for (i = size_tab-1; i > 0; i--)
+        for(j = 0; j< i; j++)
+            {
+                if (tab[j] > tab[j+1])
+                    {
+                        temp = tab[j];
+                        tab[j] = tab[j+1];
+                        tab[j+1] = temp;
+                    }
+            }
+}
+/******************************************************************/
+void tri_tableau_insertion(int *tab, int size_tab)
+{
+    for (int i = 1; i < size_tab; i++) {
+        int key = tab[i];
+        int j = i - 1;
+
+        // Déplacer les éléments de tab[0..i-1] qui sont plus grands que key
+        while (j >= 0 && tab[j] > key) {
+            tab[j + 1] = tab[j];
+            j = j - 1;
+        }
+        tab[j + 1] = key;
+    }
+}
+/******************************************************************/
+
+int partition(int tab[], int low, int high) 
+{
+    int pivot = tab[high]; // le dernier élément comme pivot
+    int i = (low - 1); // index du plus petit élément
+
+    for (int j = low; j < high; j++) {
+        // Si l'élément courant est plus petit que le pivot
+        if (tab[j] < pivot) {
+            i++; // incrémenter l'index du plus petit élément
+            int temp = tab[i];
+            tab[i] = tab[j];
+            tab[j] = temp;
+        }
+    }
+    // Échanger le pivot avec l'élément à l'index i + 1
+    int temp = tab[i + 1];
+    tab[i + 1] = tab[high];
+    tab[high] = temp;
+    return (i + 1);
+}
+/******************************************************************/
+// Fonction pour le tri rapide
+void tri_tableau_rapide(int tab[], int low, int high) 
+{
+    if (low < high) {
+        // partitionner le tableau
+        int pi = partition(tab, low, high);
+
+        // trier les éléments séparément avant et après la partition
+        tri_tableau_rapide(tab, low, pi - 1);
+        tri_tableau_rapide(tab, pi + 1, high);
+    }
 }
 /******************************************************************/
